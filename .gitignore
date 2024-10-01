@@ -1,0 +1,66 @@
+# Python virtual environment
+venv/
+
+# Python cache files
+__pycache__/
+*.py[cod]
+
+# Node modules
+node_modules/
+
+# Logs
+*.log
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# IDE specific files
+.vscode/
+.idea/
+
+# Environment variables
+.env
+
+# Build outputs
+dist/
+build/
+
+# Temporary files
+*.tmp
+
+# Docker
+*.dockerignore
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Package files
+*.egg
+*.egg-info/
+*.whl
+
+# Coverage reports
+htmlcov/
+.coverage
+
+# Pytest
+.pytest_cache/
+
+# mypy
+.mypy_cache/
+
+# Pipenv
+Pipfile.lock
+
+# Poetry
+poetry.lock
+
+# Tox
+.tox/
+
+# Sphinx documentation
+docs/_build/
+
+# PyBuilder
+target/

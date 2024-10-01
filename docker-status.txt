@@ -1,0 +1,10 @@
+CONTAINER ID   IMAGE                    COMMAND                  CREATED              STATUS         PORTS                    NAMES
+268cf865bec7   tau-compse140_service1   "docker-entrypoint.s…"   About a minute ago   Up 8 seconds   0.0.0.0:8199->8199/tcp   tau-compse140_service1_1
+db8d493a15a0   tau-compse140_service2   "python service2.py"     3 minutes ago        Up 9 seconds   8081/tcp                 tau-compse140_service2_1
+
+
+NETWORK ID     NAME                        DRIVER    SCOPE
+8c3b5e33094e   bridge                      bridge    local
+760f5f7a8c42   host                        host      local
+3efca38299ad   none                        null      local
+bd4fd936d5fe   tau-compse140_app-network   bridge    local
