@@ -1,0 +1,3 @@
+Claude 3.5 Sonnet has been used to provide initialized project suggestions at the beggining.
+
+Claude gave abstract suggestions step by step, while no more detail provided, and most of the suggestions are correct.
