@@ -1,19 +1,61 @@
 version: '3'
 services:
-  service1:
+  service1-1:
     build: ./service1
-    ports:
-      - "8199:8199"
-    depends_on:
-      - service2
     networks:
-      - app-network
+      - loadbalancing
+
+  service1-2:
+    build: ./service1
+    networks:
+      - loadbalancing
+    healthcheck:
+      test: ["CMD-SHELL", "curl -s http://service1-1:8199 || exit 1"]
+      interval: 10s
+      retries: 3
+      start_period: 5s
+      timeout: 2s
+
+  service1-3:
+    build: ./service1
+    networks:
+      - loadbalancing
+    healthcheck:
+      test: ["CMD-SHELL", "curl -s http://service1-1:8199 || exit 1"]
+      interval: 10s
+      retries: 3
+      start_period: 5s
+      timeout: 2s
 
   service2:
     build: ./service2
     networks:
-      - app-network
+      - loadbalancing
+    healthcheck:
+      test: ["CMD-SHELL", "curl -s http://service1-1:8199 || exit 1"]
+      interval: 10s
+      retries: 3
+      start_period: 5s
+      timeout: 2s
+
+  nginx:
+    build: ./nginx
+    ports:
+      - "8198:80"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    depends_on:
+      - service1-1
+      - service1-2
+      - service1-3
+    networks:
+      - loadbalancing
+    healthcheck:
+      test: ["CMD-SHELL", "curl -s http://service1-1:8199 || exit 1"]
+      interval: 10s
+      retries: 3
+      start_period: 5s
+      timeout: 2s
 
 networks:
-  app-network:
-    driver: bridge
+  loadbalancing:

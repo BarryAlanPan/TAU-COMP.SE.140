@@ -1,2 +1,0 @@
-Two containers are running on a bridge network, so they can communicate with each other using the service name as hostname.
-Each of them have a different IP address, and service1's port exposed also on the host machine for user to access.

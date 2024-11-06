@@ -1,10 +1,15 @@
-CONTAINER ID   IMAGE                    COMMAND                  CREATED              STATUS         PORTS                    NAMES
-268cf865bec7   tau-compse140_service1   "docker-entrypoint.s…"   About a minute ago   Up 8 seconds   0.0.0.0:8199->8199/tcp   tau-compse140_service1_1
-db8d493a15a0   tau-compse140_service2   "python service2.py"     3 minutes ago        Up 9 seconds   8081/tcp                 tau-compse140_service2_1
+CONTAINER ID   IMAGE                      COMMAND                  CREATED      STATUS                             PORTS                  NAMES
+2adb434ace39   tau-compse140_nginx        "nginx -g 'daemon of…"   6 days ago   Up 12 seconds (health: starting)   0.0.0.0:8198->80/tcp   tau-compse140-nginx-1
+99ed80aa4f6e   tau-compse140_service2     "python service2.py"     6 days ago   Up 13 seconds (health: starting)   8081/tcp               tau-compse140-service2-1
+1aaf463e34a5   tau-compse140_service1-3   "docker-entrypoint.s…"   6 days ago   Up 13 seconds (health: starting)   8199/tcp               tau-compse140-service1-3-1
+580dd37d4db2   tau-compse140_service1-2   "docker-entrypoint.s…"   6 days ago   Up 13 seconds (health: starting)   8199/tcp               tau-compse140-service1-2-1
+d037275b7827   tau-compse140_service1-1   "docker-entrypoint.s…"   6 days ago   Up 13 seconds                      8199/tcp               tau-compse140-service1-1-1
 
-
-NETWORK ID     NAME                        DRIVER    SCOPE
-8c3b5e33094e   bridge                      bridge    local
-760f5f7a8c42   host                        host      local
-3efca38299ad   none                        null      local
-bd4fd936d5fe   tau-compse140_app-network   bridge    local
+NETWORK ID     NAME                          DRIVER    SCOPE
+b34c1ef30378   bridge                        bridge    local
+a7827d05d70e   comp-se-110_default           bridge    local
+760f5f7a8c42   host                          host      local
+3efca38299ad   none                          null      local
+bd4fd936d5fe   tau-compse140_app-network     bridge    local
+befd243096a1   tau-compse140_loadbalancing   bridge    local
+b5b03d95359b   web-turns-me-on_default       bridge    local

@@ -73,6 +73,8 @@ app.get('/', async (req, res) => {
             uptime: getUptime()
         };
 
+        await new Promise(resolve => setTimeout(resolve, 2000));
+
         res.json({
             service1: service1Data,
             service2: service2Data
@@ -80,6 +82,13 @@ app.get('/', async (req, res) => {
     } catch (error) {
         res.status(500).json({ error: 'An error occurred while fetching data' });
     }
+});
+
+app.get('/stop', (req, res) => {
+    res.json({ message: 'Stopping services' });
+    setTimeout(() => {
+        process.exit(0);
+    }, 1000);
 });
 
 app.listen(port, () => {
