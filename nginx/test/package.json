@@ -1,0 +1,13 @@
+{
+  "name": "nginx-api-tests",
+  "version": "1.0.0",
+  "description": "API tests for nginx gateway",
+  "scripts": {
+    "test": "mocha api.test.js --timeout 10000"
+  },
+  "dependencies": {
+    "axios": "^1.6.0",
+    "chai": "^4.3.10",
+    "mocha": "^10.2.0"
+  }
+}

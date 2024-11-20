@@ -1,0 +1,36 @@
+stages:
+  - build
+  - test
+  - deploy
+
+variables:
+  COMPOSE_PROJECT_NAME: ${CI_COMMIT_SHA}
+  NGINX_USER: admin
+  NGINX_PASS: admin
+
+before_script:
+  - docker-compose --version
+
+build:
+  stage: build
+  script:
+    - docker-compose build
+    - cd nginx/test && npm install && cd ../..
+
+test:
+  stage: test
+  script:
+    - docker-compose up -d
+    - sleep 30
+    - cd nginx/test && npm test && cd ../..
+  after_script:
+    - docker-compose down -v
+  dependencies:
+    - build
+
+deploy:
+  stage: deploy
+  script:
+    - docker-compose -f docker-compose.yaml -f docker-compose.prod.yml up -d
+  dependencies:
+    - build
