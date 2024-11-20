@@ -3,6 +3,12 @@ stages:
   - test
   - deploy
 
+image:
+  name: docker/compose:latest
+
+services:
+  - docker:19.03.12-dind
+
 variables:
   COMPOSE_PROJECT_NAME: ${CI_COMMIT_SHA}
   NGINX_USER: admin
