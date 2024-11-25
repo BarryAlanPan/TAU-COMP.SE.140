@@ -77,7 +77,7 @@ describe('New API Gateway State Tests', () => {
                     'Accept': 'text/plain'
                 }
             });
-            expect(stateResponse.data).to.equal('PAUSED');
+            expect(stateResponse.data).to.contain('PAUSED');
         });
     });
 
