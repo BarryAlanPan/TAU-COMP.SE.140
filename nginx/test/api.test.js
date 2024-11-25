@@ -1,10 +1,10 @@
 const axios = require('axios');
 const { expect } = require('chai');
 
-const BASE_URL = process.env.NGINX_URL || 'http://localhost:8198';
+const BASE_URL = 'http://localhost:8197';
 const AUTH = {
-    username: process.env.NGINX_USER || 'admin',
-    password: process.env.NGINX_PASS || 'admin'
+    username: 'admin',
+    password: 'admin'
 };
 
 describe('Nginx API Gateway Tests', () => {

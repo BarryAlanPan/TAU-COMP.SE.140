@@ -1,7 +1,7 @@
 stages:
   - build
   - test
-  - deploy
+  # - deploy
 
 image:
   name: docker/compose:latest
@@ -34,9 +34,9 @@ test:
   dependencies:
     - build
 
-deploy:
-  stage: deploy
-  script:
-    - docker-compose -f docker-compose.yaml -f docker-compose.prod.yml up -d
-  dependencies:
-    - build
+# deploy:
+#   stage: deploy
+#   script:
+#     - docker-compose -f docker-compose.yaml -f docker-compose.prod.yml up -d
+#   dependencies:
+#     - build
