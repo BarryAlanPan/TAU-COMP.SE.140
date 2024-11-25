@@ -21,14 +21,14 @@ build:
   stage: build
   script:
     - docker-compose build
-    - cd nginx/test && npm install && cd ../..
+    - cd test && npm install && cd ../..
 
 test:
   stage: test
   script:
     - docker-compose up -d
     - sleep 30
-    - cd nginx/test && npm test && cd ../..
+    - cd test && npm test && cd ../..
   after_script:
     - docker-compose down -v
   dependencies:
